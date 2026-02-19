@@ -1,0 +1,16 @@
+#todo-list {
+  list-style: none;
+}
+
+#todo-list li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #95a5a6;
+}
+
+.empty-message {
+  color: #95a5a6;
+}
+
+.error-message {
+  color: #e74c3c;
+}

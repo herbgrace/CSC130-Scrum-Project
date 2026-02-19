@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/homepage.css">
 </head>
 <body>
     <div class="header">
-        <h1>Create Account</h1>
+        <h1>Login</h1>
     </div>
 
     <div class="container">
         <div class="box">
-            <form id="signup-form">
+            <% if (locals.error) { %>
+                <div class="alert alert-error"><%= error %></div>
+            <% } %>
+            
+            <form action="/login" method="POST">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="Username" required>
                 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="Password" required>
                 
-                <button type="submit">Create User</button>
+                <button type="submit">Login</button>
             </form>
+
+            <p style="margin-top: 1rem;">Don't have an account? <a href="/users/signup">Sign up here</a>.</p>
         </div>
     </div>
-
-    <script src="/js/signup.js"></script>
 </body>
 </html>

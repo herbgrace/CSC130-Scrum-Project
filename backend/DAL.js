@@ -51,9 +51,9 @@ module.exports.DAL = {
      * @throws {ValidationError} When Username/Password (or a ToDo's Task) are missing or null.
      */
     createUser : async function(userJson) {
-        // if (!userJson.Username || !userJson.Password) {
-        //     throw new Error("Username and Password need to be defined.")
-        // }
+        if (!userJson.Username || !userJson.Password) {
+            throw new Error("Username and Password need to be defined.")
+        }
         if (!userJson.ToDo) {
             userJson.ToDo = [];
         }
@@ -112,6 +112,33 @@ module.exports.DAL = {
 
         await closeConnection();
         return res.deletedCount === 1
+    },
+
+    /**
+     * Finds a user by username and password (for login)
+     * @param {string} username The username to search for
+     * @param {string} password The password to match
+     * @returns {object} User object if found and password matches
+     * @returns {null} null if not found or password doesn't match
+     */
+    getUserByUsernameAndPassword : async function(username, password) {
+        await openConnection();
+        const result = await User.findOne({"Username": username, "Password": password});
+        await closeConnection();
+        return result;
+    },
+
+    /**
+     * Finds a user by username only
+     * @param {string} username The username to search for
+     * @returns {object} User object if found
+     * @returns {null} null if not found
+     */
+    getUserByUsername : async function(username) {
+        await openConnection();
+        const result = await User.findOne({"Username": username});
+        await closeConnection();
+        return result;
     }
 }
 
