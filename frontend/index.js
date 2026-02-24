@@ -16,6 +16,7 @@ app.set("view engine", "ejs");
 });*/
 
 
+
 // POST to create a new user. 
 app.post("/users", async (req, res) => {
     try {
@@ -43,6 +44,9 @@ app.post("/users", async (req, res) => {
         return;
     }
     
+});
+app.get("/", (req, res) => {
+    res.redirect("/homepage");
 });
 
 app.get("/users/signup", async (req, res) => {
@@ -84,6 +88,11 @@ app.post("/login", async (req, res) => {
     }
 }); 
 
+app.get("/logout", (req, res) => {
+    res.clearCookie("userId");
+    res.redirect("/homepage");
+});
+
 app.listen(3000, () => {
     console.log("Frontend is running on port 3000");
 });
@@ -91,3 +100,5 @@ app.listen(3000, () => {
 app.get("/homepage", async (req, res) => {
     res.render("homepage.ejs");
 });
+
+

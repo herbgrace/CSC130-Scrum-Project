@@ -4,13 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-    <h1>Homepage</h1>
-    <h2>Welcome to the To-Do List App!</h2>
-    <p>Please <a href="/users/signup">sign up</a> to create an account and start managing your tasks.</p>
-    <p>Already have an account? <a href="/login">Log in here</a>.</p>
-    
+    <div class="header">
+        <h1>To-Do List App</h1>
+    </div>
+
+    <div class="main-card">
+        <div class="box">
+            <h2>Welcome!</h2>
+            <p>Organize your life, one task at a time.</p>
+            <p>Our webapp helps you track active goals and track completed tasks.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
+
+            <div class="auth-options">
+                <p>New here? <br>
+                    <a href="/users/signup"><button style="width: 100%; margin: 10px 0;">Create an Account</button></a>
+                </p>
+                
+                <p>Already a member? <br>
+                    <a href="/login" style="color: cornflowerblue; font-weight: bold; text-decoration: none;">Log in here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

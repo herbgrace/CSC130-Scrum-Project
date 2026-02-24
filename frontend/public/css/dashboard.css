@@ -1,16 +1,257 @@
-#todo-list {
-  list-style: none;
+
+* {
+    box-sizing: border-box; 
 }
 
-#todo-list li {
-  padding: 0.5rem;
-  border-bottom: 1px solid #95a5a6;
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #6495ED, #acb6e5); 
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.header {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    gap: 1rem;             
+    margin-bottom: 2rem;
+}
+.header h1 {
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+
+h2, h3, h4, h5 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+h2 { color: #ffffff; }
+h3 { color: #444; font-size: 18.72px; }
+h4 { color: #000000; font-size: 18.72px;} 
+h5 { color: #000000; font-size: 18.72px;} 
+
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+input[type="text"], 
+input[type="password"], 
+select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #6495ED;
+    box-shadow: 0 0 5px rgba(100, 149, 237, 0.3);
+}
+
+
+button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #6495ED;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #4a69bd;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#todo-form button {
+    width: 100%;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #f8faff;
+    border-left: 5px solid #6495ED;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    animation: fadeIn 0.3s ease;
+}
+
+li span {
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #444;
+}
+
+
+input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+
+input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+
+#completed-list li {
+    border-left-color: #bdc3c7;
+    background-color: #fdfdfd;
+    opacity: 0.7;
+}
+
+#completed-list span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.delete-btn {
+    background: #ff7675;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.delete-btn:hover {
+    background: #d63031;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .empty-message {
-  color: #95a5a6;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    border: none;
+    background: transparent;
+    box-shadow: none;
 }
 
-.error-message {
-  color: #e74c3c;
+/* HOMEPAGE/ SIGN UP/LOGIN */
+* {
+    box-sizing: border-box;
 }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #6495ED, #acb6e5);
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+
+.main-card {
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+
+.box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    width: 100%;
+    margin-bottom: 0; 
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+h2 { color: #ffffff; margin-top: 0; }
+p { color: #666; line-height: 1.6; }
+
+button {
+    background-color: #6495ED;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #4a69bd;
+    transform: translateY(-2px);
+}
+
+

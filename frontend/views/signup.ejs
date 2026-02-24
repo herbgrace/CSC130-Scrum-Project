@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create User</title>
-    <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
     <div class="header">
-        <h1>Create Account</h1>
+        <h1>To-Do App</h1>
     </div>
 
-    <div class="container">
+    <div class="main-card">
         <div class="box">
+            <h3>Create Account</h3>
             <form id="signup-form">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="Username" required>
+                <input type="text" id="username" name="Username" required placeholder="Pick a username">
                 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="Password" required>
+                <input type="password" id="password" name="Password" required placeholder="Choose a strong password">
                 
-                <button type="submit">Create User</button>
+                <button type="submit" style="width: 100%;">Sign Up</button>
             </form>
+            
+            <p style="margin-top: 1.5rem; text-align: center; color: #666;">
+                Already have an account? 
+                <a href="/login" style="color: cornflowerblue; font-weight: bold; text-decoration: none;">Login here</a>
+            </p>
         </div>
     </div>
 

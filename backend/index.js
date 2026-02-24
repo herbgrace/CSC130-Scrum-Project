@@ -90,7 +90,47 @@ app.post("/api/users/:id/todos", async (req, res) => {
     }
 });
 
+app.put("/api/users/:id/todos/:todoId", async (req, res) => {
+    try {
+        const userId = parseInt(req.params.id);
+        const todoId = parseInt(req.params.todoId);
+        const user = await DAL.getUserById(userId);
+
+        if (!user) return res.status(404).json({error: "User not found"});
+
         
+        const todo = user.ToDo.find(t => t.Id === todoId);
+        if (todo) {
+            todo.Completed = req.body.Completed;
+            await DAL.updateUser({Id: userId, ToDo: user.ToDo});
+            res.json(todo);
+        } else {
+            res.status(404).json({error: "Todo not found"});
+        }
+    } catch (err) {
+        res.status(500).json({error: "Error updating todo"});
+    }
+});
+
+app.delete("/api/users/:id/todos/:todoId", async (req, res) => {
+    try {
+        const userId = parseInt(req.params.id);
+        const todoId = parseInt(req.params.todoId);
+        const user = await DAL.getUserById(userId);
+
+        if (!user) return res.status(404).json({error: "User not found"});
+
+
+        user.ToDo = user.ToDo.filter(t => t.Id !== todoId);
+        
+        await DAL.updateUser({Id: userId, ToDo: user.ToDo});
+        res.json({success: true});
+    } catch (err) {
+        res.status(500).json({error: "Error deleting todo"});
+    }
+});        
+
+
 app.listen(3001, () => {
     console.log("Backend is running on port 3001");
 });

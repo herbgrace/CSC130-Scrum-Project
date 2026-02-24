@@ -4,34 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
     <div class="header">
         <h1 id="username-display">Dashboard</h1>
+        <a href="/logout"><button>Logout</button></a>
     </div>
 
-    <div class="container">
+    <div class="main-card">
         <h2>Your To-Do List</h2>
         
         <div class="box">
             <h3>Add New Task</h3>
             <form id="todo-form">
-                <label for="task">Task:</label>
-                <input type="text" id="task" name="task" required>
+                <input type="text" id="task" name="task" required placeholder="Enter a new task">
                 <button type="submit">Add Task</button>
             </form>
         </div>
 
         <div class="box">
-            <h3>Your Tasks</h3>
+            <h4>Your Tasks</h4>
             <ul id="todo-list">
                 <li class="empty-message">Loading tasks...</li>
             </ul>
+            
         </div>
+            <div class="box completed-section">
+            <h5>Completed Tasks</h5>
+            <ul id="completed-list"></ul>
+        </div>
+
     </div>
 
     <script src="/js/dashboard.js"></script>
 </body>
 </html>
+
